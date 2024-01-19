@@ -82,6 +82,8 @@ $phone: 390px;
 }
 
 .select {
+  font-size: 16px;
+  line-height: 1.5;
   padding: 12px 24px;
   height: 48px;
   border-radius: var(--input-border-radius);
@@ -141,6 +143,12 @@ $phone: 390px;
   &:checked {
     & ~ .checkbox-icon {
       background-color: var(--primary-plain-color);
+    }
+  }
+
+  &:focus {
+    & ~ .checkbox-icon {
+      border-width: 2px;
     }
   }
 }
@@ -216,14 +224,15 @@ $phone: 390px;
 }
 
 .muiSelect {
-  border: none;
   width: 100%;
   max-width: 100%;
+  box-sizing: border-box;
 
   .MuiSelect-select {
+    border: 2px solid transparent;
     border-radius: var(--input-border-radius);
     background-color: var(--background-level-1-color);
-    padding: 12px 24px;
+    padding: 10px 24px;
     min-height: 24px;
   }
 
@@ -241,6 +250,12 @@ $phone: 390px;
   .MuiOutlinedInput-notchedOutline {
     border: none;
     top: 0;
+  }
+
+  &.Mui-focused {
+    .MuiSelect-select {
+      border-color: var(--primary-plain-color);
+    }
   }
 }
 

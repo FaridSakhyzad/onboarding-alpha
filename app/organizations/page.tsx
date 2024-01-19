@@ -129,7 +129,7 @@ export default function Page1() {
             <a href="/create-organisation" className="button aqua organizations-addButton"><i className="organizations-addButtonIcon" />Add Another Organization</a>
           </div>
           <div className="notSeeYourOrg">
-            Not seeing your organization? <a href="#">Try Different Phone Number</a>
+            Not seeing your organization? <a href="/signup">Try Different Phone Number</a>
           </div>
         </main>
         <AsideImage />

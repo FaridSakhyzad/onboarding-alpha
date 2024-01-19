@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 import Image from 'next/image';
 
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -16,6 +18,8 @@ import '../layouts.scss';
 import './styles.scss';
 
 export default function CreateOrganisation() {
+  const router = useRouter();
+
   const [ currentCategories, setCurrentCategories ] = useState<string[]>([]);
 
   const names = [
@@ -43,6 +47,58 @@ export default function CreateOrganisation() {
     const rest = currentCategories.filter(item => item !== value);
 
     setCurrentCategories(rest);
+  }
+
+  const [ email, setEmail ] = useState('');
+  const [ isEmailValid, setIsEmailValid ] = useState(false);
+
+  const [ orgName, setOrgName ] = useState('');
+  const [ employeesAmount, setEmployeesAmount ] = useState('');
+  const [ iAgree, setIAgree ] = useState(false);
+
+  const validateEmail = (string: string) => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(string);
+
+  const handleEmailChange = (e: React.SyntheticEvent) => {
+    const { value } = e.target as HTMLInputElement || {};
+
+    setEmail(value);
+
+    setIsEmailValid(validateEmail(value));
+  }
+
+  const handleOrgNameChange = (e: React.SyntheticEvent) => {
+    const { value } = e.target as HTMLInputElement || {};
+
+    setOrgName(value);
+  }
+
+  const handleEmployeesAmountChange = (e: React.SyntheticEvent) => {
+    const { value } = e.target as HTMLSelectElement || {};
+
+    setEmployeesAmount(value);
+  }
+
+  const handleIAgreeChange = (e: React.SyntheticEvent) => {
+    const { checked } = e.target as HTMLInputElement || {};
+
+    setIAgree(checked);
+  }
+
+  const isFormValid = () => {
+    return orgName.length > 0 && iAgree && isEmailValid;
+  }
+
+  const handleContinueButtonClick = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    const data = {
+      email,
+      orgName,
+      employeesAmount,
+      currentCategories,
+    }
+
+    router.push('/organizations', { scroll: false })
   }
 
   return (
@@ -85,6 +141,8 @@ export default function CreateOrganisation() {
                       type="text"
                       className="input formInput-input"
                       placeholder="mike@company.com"
+                      value={email}
+                      onChange={handleEmailChange}
                     />
                   </div>
                 </div>
@@ -100,6 +158,8 @@ export default function CreateOrganisation() {
                       type="text"
                       className="input formInput-input"
                       placeholder="Enter Name"
+                      value={orgName}
+                      onChange={handleOrgNameChange}
                     />
                   </div>
                 </div>
@@ -114,12 +174,13 @@ export default function CreateOrganisation() {
                     <div className="custom-select">
                       <select
                         className="select"
-                        defaultValue="0"
+                        defaultValue={employeesAmount}
+                        onChange={handleEmployeesAmountChange}
                       >
-                        <option value="0" disabled>0</option>
-                        <option value="10">10</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
+                        <option value=""></option>
+                        <option value="1-5">1-5</option>
+                        <option value="5-50">5-50</option>
+                        <option value="50-200">50-200</option>
                       </select>
                     </div>
                   </div>
@@ -173,13 +234,23 @@ export default function CreateOrganisation() {
               </div>
               <div className="createOrgForm-row">
                 <label className="checkbox">
-                  <input type="checkbox" className="checkbox-control" />
+                  <input
+                    type="checkbox"
+                    className="checkbox-control"
+                    checked={iAgree}
+                    onChange={handleIAgreeChange}
+                  />
                   <i className="checkbox-icon" />
                   <span className="checkbox-text">I agree with <a href="">Terms and Conditions</a></span>
                 </label>
               </div>
               <div className="createOrgForm-row">
-                <button type="submit" className="button createOrgForm-submit">Continue</button>
+                <button
+                  type="submit"
+                  className="button createOrgForm-submit"
+                  disabled={!isFormValid()}
+                  onClick={handleContinueButtonClick}
+                >Continue</button>
               </div>
             </form>
           </div>
