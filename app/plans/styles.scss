@@ -1,0 +1,175 @@
+@import '../common';
+
+.plans {
+  padding: 64px;
+}
+
+.plans-title {
+  text-align: center;
+  margin: 0 0 8px 0;
+}
+
+.plans-text {
+  margin: 0 0 34px 0;
+  text-align: center;
+  color: var(--text-secondary-color);
+}
+
+.plans-textPara {
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.plansType {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  margin: 0 0 34px 0;
+  font-size: 18px;
+  color: var(--text-secondary-color);
+}
+
+.plansType-switcher {
+  margin: 0 16px;
+}
+
+.pricing {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 80px;
+}
+
+.pricingBlock {
+  flex: 1 1 0;
+  background-color: white;
+  padding: 24px 32px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #D2D6DB;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.pricingBlockHeader {
+  margin-bottom: 24px;
+}
+
+.pricingName {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-secondary-color);
+  margin: 0 0 8px 0;
+}
+
+.pricingPrice {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  display: flex;
+  align-items: center;
+}
+
+.pricingPriceText {
+  font-size: 16px;
+  font-weight: 300;
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.pricingDescription {
+  color: var(--text-secondary-color);
+}
+
+.pricingFeaturesList {
+  margin-bottom: 24px;
+}
+
+.pricingFeaturesItem {
+  display: block;
+  padding: 0 0 0 28px;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--success-600-color) url('/icon--plans-checkmark.svg') center center no-repeat;
+    position: absolute;
+    left: 0;
+    top: 4px;
+  }
+}
+
+.pricingChooseButton {
+  margin: auto 0 12px 0;
+}
+
+.pricingNote {
+  text-align: center;
+  color: var(--text-secondary-color);
+}
+
+@media (width < $laptopLarge) {
+  .plans {
+    padding: 64px 24px;
+  }
+
+  .pricing {
+    flex-direction: column;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .pricingBlock {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .pricingBlockHeader {
+    margin-bottom: 24px;
+  }
+
+  .pricingName {
+    text-align: center;
+    font-size: 16px;
+    margin: 0 0 4px 0;
+  }
+
+  .pricingPrice {
+    font-size: 24px;
+    margin: 0 0 4px 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pricingPriceText {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .pricingDescription {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .pricingFeaturesList {
+    margin-bottom: 64px;
+  }
+
+  .pricingFeaturesItem {
+    font-size: 14px;
+
+    &:before {
+      top: 2px;
+    }
+  }
+}

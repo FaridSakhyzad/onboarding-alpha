@@ -1,0 +1,50 @@
+@import "common";
+
+.layout1 {
+  display: grid;
+  grid-template-columns: 640px auto;
+  grid-template-rows: 72px auto;
+  min-height: 100vh;
+
+  .header {
+    order: 0;
+  }
+
+  .main {
+    order: 2;
+  }
+
+  .asideImageBox {
+    order: 1;
+    grid-row-start: span 2;
+    margin: 24px 24px 24px 0;
+  }
+}
+
+.layout2 {
+  display: grid;
+  grid-template-rows: 72px auto;
+
+  .header {
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.1);
+  }
+}
+
+@media (width < $laptopLarge) {
+  .layout1 {
+    grid-template-columns: auto;
+
+    .header {
+      order: 0;
+    }
+
+    .main {
+      order: 1;
+      overflow: hidden;
+    }
+
+    .asideImageBox {
+      display: none;
+    }
+  }
+}

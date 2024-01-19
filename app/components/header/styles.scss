@@ -1,0 +1,23 @@
+@import '../../common';
+
+.header {}
+
+.header-wrapper {
+  padding: 16px 64px;
+  margin: auto;
+  width: 100%;
+  max-width: var(--container-max-width-desktop);
+}
+
+.logo {
+  display: block;
+  width: 160px;
+  height: 40px;
+  background: url('/logo.svg') left center no-repeat;
+}
+
+@media (width < $tablet) {
+  .header-wrapper {
+    padding: 16px 24px;
+  }
+}

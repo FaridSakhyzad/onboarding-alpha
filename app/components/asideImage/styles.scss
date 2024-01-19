@@ -1,0 +1,71 @@
+.asideImageBox {
+  background: linear-gradient(79.96deg, #5925DC 3.47%, rgba(89, 37, 220, 0) 91.63%), linear-gradient(81.81deg, rgba(122, 90, 248, 0) 3.24%, #7A5AF8 101.45%), #6938EF;
+  border-radius: 32px;
+  padding: 110px 56px 110px 55px;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 128px;
+    height: 108px;
+    background-image: url("/bg--aside-image-bg-1.svg");
+    left: 21px;
+    bottom: 123px;
+    z-index: 0;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 128px;
+    height: 108px;
+    background-image: url("/bg--aside-image-bg-2.svg");
+    right: 36px;
+    top: 219px;
+    z-index: 0;
+  }
+}
+
+.asideImage-title {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.asideImage-text {
+  margin-bottom: 64px;
+}
+
+.asideImage-textPara {
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.asideImage-slide1 {
+  width: 664px;
+  height: 460px;
+  border-radius: 18px;
+  border: 6px solid var(--neutral-900-color);
+  background: url('/img--dashboard-slide-1.jpg') center center no-repeat;
+  box-sizing: content-box;
+  margin: auto -6px;
+  position: relative;
+  z-index: 1;
+}
+
+.asideImage-slide2 {
+  width: 196px;
+  height: 408px;
+  background: url('/img--iphone-slide-1.png') center center no-repeat;
+  position: absolute;
+  z-index: 1;
+  right: -18px;
+  bottom: -73px;
+}

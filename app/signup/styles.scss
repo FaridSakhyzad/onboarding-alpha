@@ -1,0 +1,107 @@
+@import '../common';
+
+.signup {
+  width: 100%;
+  padding: 64px;
+  margin: auto;
+}
+
+.signupTitle {
+  font-size: 30px;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+}
+
+.signupText {
+  margin-bottom: 32px;
+}
+
+.signupTextPara {
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+.signupForm {
+  display: block;
+}
+
+.signupPhone {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.signupPhonePrefix {
+  width: 117px;
+}
+
+.signupPhoneNumber {
+  flex: 1 1 0;
+}
+
+.signupSubmitButton {
+  width: 100%;
+}
+
+.verificationForm {
+
+}
+
+.signupPhoneVerify {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.signupPhoneVerifyNumber {
+  width: 0;
+  flex: 1 1 0;
+  min-width: 116px;
+  text-align: center;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.verificationSubmitButton {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.verificationSendAgainButton {
+  &.button {
+    display: table;
+    margin: 0 auto;
+  }
+}
+
+@media (width < $tablet) {
+  .signup {
+    padding: 64px 24px;
+  }
+
+  .signupTitle {
+    text-align: center;
+  }
+
+  .signupText {
+    text-align: center;
+  }
+
+  .signupPhonePrefix {
+    width: 107px;
+  }
+
+  .signupPhoneNumber {
+    min-width: 72px;
+  }
+
+  .signupPhoneVerifyNumber {
+    min-width: 72px;
+  }
+}
+
